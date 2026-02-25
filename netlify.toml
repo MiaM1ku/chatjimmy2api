@@ -1,0 +1,23 @@
+[build]
+functions = "netlify/functions"
+
+[template.environment]
+OPENAI_API_KEY = "Set the Bearer token required by clients."
+
+[[redirects]]
+from = "/v1/*"
+to = "/.netlify/functions/openai/v1/:splat"
+status = 200
+force = true
+
+[[redirects]]
+from = "/health"
+to = "/.netlify/functions/openai/health"
+status = 200
+force = true
+
+[[redirects]]
+from = "/"
+to = "/.netlify/functions/openai/"
+status = 200
+force = true
